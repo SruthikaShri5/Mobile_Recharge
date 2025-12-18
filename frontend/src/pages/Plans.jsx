@@ -85,7 +85,7 @@ const Plans = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {plans.filter(plan => plan.type === selectedCategory).map((plan, index) => (
+            {plans.filter(plan => (plan.type || plan.category) === selectedCategory).map((plan, index) => (
               <div key={plan._id || plan.id} className={`card p-6 animate-scale-in hover:shadow-2xl transform hover:-translate-y-2 ${plan.type === 'popular' ? 'border-2 border-emerald-400 ring-2 ring-emerald-200' : ''}`} style={{animationDelay: `${index * 0.1}s`}}>
                 {plan.type === 'popular' && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
