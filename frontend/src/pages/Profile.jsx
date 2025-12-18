@@ -19,10 +19,40 @@ const Profile = () => {
     setIsEditing(false);
   };
 
-  const handlePasswordChange = () => {
-    // Add password change logic here
-    setShowPasswordModal(false);
-    setPasswords({ current: '', new: '', confirm: '' });
+  const handlePasswordChange = async () => {
+    if (passwords.new !== passwords.confirm) {
+      alert('New passwords do not match');
+      return;
+    }
+    if (passwords.new.length < 6) {
+      alert('Password must be at least 6 characters');
+      return;
+    }
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/change-password`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          currentPassword: passwords.current,
+          newPassword: passwords.new
+        })
+      });
+      
+      if (response.ok) {
+        alert('Password updated successfully');
+        setShowPasswordModal(false);
+        setPasswords({ current: '', new: '', confirm: '' });
+      } else {
+        const error = await response.json();
+        alert(error.message || 'Failed to update password');
+      }
+    } catch (error) {
+      alert('Network error. Please try again.');
+    }
   };
 
   const handleDeleteAccount = () => {
@@ -148,26 +178,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="card p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-purple-100 rounded-lg">
-                    <FiCreditCard className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">Login History</h3>
-                    <p className="text-sm text-gray-600">Recent login activity</p>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between p-3 bg-gray-50 rounded-lg">
-                    <span className="text-sm text-gray-700">{new Date().toLocaleString()}</span>
-                    <span className="text-sm text-green-600 font-medium">Current Session</span>
-                  </div>
-                  <div className="p-3 bg-gray-50 rounded-lg text-center text-sm text-gray-500">
-                    Login history requires backend integration
-                  </div>
-                </div>
-              </div>
+
             </div>
           )}
 
