@@ -122,9 +122,9 @@ const Confirmation = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100 py-4 sm:py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="card p-6 sm:p-8 lg:p-12 text-center animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100 py-8">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="card p-8 text-center animate-fade-in" style={{ minHeight: '80vh' }}>
           <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
             <FiCheckCircle className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
           </div>
