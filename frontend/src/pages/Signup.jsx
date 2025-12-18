@@ -38,7 +38,7 @@ const Signup = () => {
   const checkUnique = async (field, value) => {
     if (!value) return;
     try {
-      const response = await fetch(`http://localhost:3002/api/auth/check-unique`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/check-unique`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ [field]: value })
@@ -72,7 +72,7 @@ const Signup = () => {
     
     try {
       // Register with backend API
-      const response = await fetch('http://localhost:3002/api/auth/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
