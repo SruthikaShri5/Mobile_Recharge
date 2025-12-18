@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: mobz-backend
+    runtime: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: mobz-mongodb
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: PORT
+        value: 10000
+    healthCheckPath: /api/health
+
+  - type: web
+    name: mobz-frontend
+    runtime: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        value: https://mobz-backend.onrender.com
+
+databases:
+  - name: mobz-mongodb
+    databaseName: mobz_recharge
+    user: mobz_user
+    plan: free

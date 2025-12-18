@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-slate-800 to-purple-900 border border-purple-500/30;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:shadow-purple-500/50 hover:from-purple-700 hover:via-pink-700 hover:to-rose-700 transform hover:scale-110 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-slate-700 to-slate-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl border border-purple-500/50 transform hover:scale-105 transition;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-purple-500/30 bg-slate-800/50 text-white rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 focus:outline-none transition placeholder-slate-400;
+  }
+  
+  .plan-card {
+    @apply bg-gradient-to-br from-slate-800 via-purple-900/50 to-slate-800 rounded-2xl shadow-xl p-6 border-2 border-purple-500/20 hover:border-purple-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300;
+  }
+  
+  .modal-overlay {
+    @apply fixed inset-0 bg-gradient-to-br from-slate-900/90 to-purple-900/90 backdrop-blur-md flex items-center justify-center z-50;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 bg-clip-text text-transparent;
+  }
+  
+  .navbar-gradient {
+    @apply bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 shadow-2xl border-b border-purple-500/30;
+  }
+  
+  .card-glass {
+    @apply bg-slate-800/80 backdrop-blur-md rounded-2xl shadow-2xl border border-purple-500/30;
+  }
+  
+  .card-light {
+    @apply bg-white rounded-2xl shadow-xl p-6 border border-slate-200 hover:shadow-2xl transition-all duration-300;
+  }
+  
+  .text-light {
+    @apply text-slate-100;
+  }
+  
+  .text-dark {
+    @apply text-slate-900;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+  }
+  
+  .glow-pink {
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+  }
+  
+  .bg-dark-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+  }
+}
