@@ -37,8 +37,7 @@ app.get('/', (req, res) => {
 // Database connection with timeout options
 mongoose.connect(process.env.MONGODB_URI, {
   serverSelectionTimeoutMS: 30000,
-  socketTimeoutMS: 45000,
-  bufferMaxEntries: 0
+  socketTimeoutMS: 45000
 })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
