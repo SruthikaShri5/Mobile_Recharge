@@ -75,7 +75,7 @@ const Confirmation = () => {
         
         console.log('Saving transaction data:', transactionData);
         
-        const response = await fetch('http://localhost:3001/api/transactions', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(transactionData)
