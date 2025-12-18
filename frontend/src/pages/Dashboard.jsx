@@ -22,7 +22,7 @@ const Dashboard = () => {
         console.log('Dashboard: User data:', { userMobile, userId, fullUser: user });
         
         if (userId) {
-          const url = `http://localhost:3002/api/transactions/user/${userId}`;
+          const url = `${import.meta.env.VITE_API_URL}/api/transactions/user/${userId}`;
           console.log('Dashboard: Fetching from:', url);
           
           const response = await fetch(url);
