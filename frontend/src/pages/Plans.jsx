@@ -24,7 +24,7 @@ const Plans = () => {
 
   const fetchPlans = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/plans');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/plans`);
       const data = await response.json();
 
       if (data.success) {
@@ -54,7 +54,7 @@ const Plans = () => {
   const storedData = JSON.parse(localStorage.getItem('rechargeData') || '{}');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100 py-8 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-4xl font-bold font-montserrat text-gray-900 mb-8">
