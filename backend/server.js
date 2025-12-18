@@ -34,8 +34,12 @@ app.get('/', (req, res) => {
   res.json({ message: 'Mobile Recharge API - Day 12', endpoints: ['/api/auth/login', '/api/auth/register', '/api/plans', '/api/users', '/api/transactions'] });
 });
 
-// Database connection
-mongoose.connect(process.env.MONGODB_URI)
+// Database connection with timeout options
+mongoose.connect(process.env.MONGODB_URI, {
+  serverSelectionTimeoutMS: 30000,
+  socketTimeoutMS: 45000,
+  bufferMaxEntries: 0
+})
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
