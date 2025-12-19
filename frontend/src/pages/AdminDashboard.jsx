@@ -100,10 +100,10 @@ const AdminDashboard = () => {
       console.log('Fetching admin data with token:', token ? 'Present' : 'Missing')
       
       const [usersRes, transactionsRes] = await Promise.all([
-        fetch('http://localhost:3002/api/users', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch('http://localhost:3002/api/transactions', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
       ])
