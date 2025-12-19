@@ -23,6 +23,7 @@ import Offers from './pages/Offers';
 import Support from './pages/Support';
 import AdminDashboard from './pages/AdminDashboard';
 import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
                   <Route path="/support" element={<Support />} />
                   <Route path="/admin" element={<AdminDashboard />} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route path="*" element={<LandingPage />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
               <Footer />
