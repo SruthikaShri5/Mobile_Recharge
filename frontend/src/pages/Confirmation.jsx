@@ -198,18 +198,18 @@ const Confirmation = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <Link 
-              to="/dashboard" 
+            <button 
+              onClick={() => window.location.href = '/dashboard'}
               className="btn-emerald py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-semibold font-roboto hover:scale-105 transition-transform text-sm sm:text-base"
             >
               Back to Dashboard
-            </Link>
-            <Link 
-              to="/recharge" 
+            </button>
+            <button 
+              onClick={() => window.location.href = '/recharge'}
               className="btn-cyan py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-semibold font-roboto hover:scale-105 transition-transform text-sm sm:text-base"
             >
               New Recharge
-            </Link>
+            </button>
             <button 
               onClick={() => window.print()} 
               className="btn-orange py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-semibold font-roboto hover:scale-105 transition-transform flex items-center justify-center gap-2 text-sm sm:text-base"
