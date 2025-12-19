@@ -51,6 +51,7 @@ function App() {
                   <Route path="/support" element={<Support />} />
                   <Route path="/admin" element={<AdminDashboard />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="*" element={<LandingPage />} />
                 </Routes>
               </div>
               <Footer />
